@@ -1,0 +1,44 @@
+<mat-toolbar>
+    <span>REGISTRATION</span>
+</mat-toolbar>
+<div fxLayout="column" fxLayoutAlign="space-around center">
+    <mat-card-content>
+        <form class="my-form" [formGroup]="registrationForm">
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+            </div>
+            <div fxLayout="column" appearance="outline">
+                <mat-radio-group formControlName="gender" aria-label="Select an option">
+                    <mat-radio-button value="male">male</mat-radio-button>
+                    <mat-radio-button value="female">female</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>mobilenumber</mat-label>
+                    <input matInput placeholder="mobilenumber" formControlName="mobilenumber">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+                <button mat-raised-button color="accent" (click)='onSubmit()'>Register</button>
+                <nav>
+                    <a routerLink="/login" style="margin-left: 16px;">login</a>
+                </nav>
+                <nav>
+                    <a routerLink="/forgotpassword" style="margin-left: 16px;">forgot</a>
+                </nav>
+            </div>
+
+        </form>
+    </mat-card-content>
+</div>

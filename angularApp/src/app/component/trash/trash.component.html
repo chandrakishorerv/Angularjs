@@ -1,0 +1,24 @@
+<p> Trashed Notes</p>
+<div *ngIf="mynotes ? mynotes!=null: false" class="notescard">
+    <div *ngFor="let note of mynotes; let i = index" display="flex">
+        <mat-card class="z-depth-1">
+            <div (click)="openDialog(note)">
+                <mat-card-content>{{note.title}}</mat-card-content>
+                <mat-card-content> {{note.description}}
+                    <p> {{note.createdOn | date:'dd.MM.yyyy HH:mm:ss'}}</p>
+                </mat-card-content>
+            </div>
+            <mat-card-footer class="matfooter">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon style="margin-right:0px;margin-left:0px">
+                        more_vert
+                    </mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="deleteNote(note)">Delete permanently</button>
+                    <button mat-menu-item (click)="untrashNote(note)">Restore</button>
+                </mat-menu>
+            </mat-card-footer>
+        </mat-card>     
+    </div>
+</div>

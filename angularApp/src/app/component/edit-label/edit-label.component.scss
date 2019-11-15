@@ -1,0 +1,18 @@
+.editlabel{
+    height:3px;
+}
+.label-name{
+    float: left;
+  /* display: inline-block; */
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.mat-icons{
+    vertical-align: middle;
+}

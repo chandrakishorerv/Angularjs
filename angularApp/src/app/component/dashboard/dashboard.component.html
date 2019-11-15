@@ -1,0 +1,100 @@
+<div>
+  <mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img class="jpg-icon" src="/assets/index.png" >
+    <span>Keep</span>
+    <form #userlogin="ngForm" (ngSubmit)="onClickSubmit(userlogin.value)">
+      <mat-card class="div-search" style="margin-left:25px" fxLayoutAlign="center center" routerLinkActive="active">
+        <button mat-icon-button class="searchButton" type="submit">
+          <mat-icon>search</mat-icon>
+        </button>
+        <input type="search" name="titleordescription" class="resizedTextbox" matInput placeholder="search" ngModel>
+        <button mat-icon-button class="searchButton">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-card>
+    </form>
+    <button mat-icon-button style="margin-left: 15px;">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-icon-button (click)="changeView(show)">
+      <mat-icon *ngIf="show">view_stream</mat-icon>
+      <mat-icon *ngIf="!show">view_module</mat-icon>
+    </button>
+    <button mat-icon-button style="margin-left: 25px;">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <button mat-icon-button style="margin-left: 20px;">
+      <mat-icon>apps</mat-icon>
+    </button>
+    <button mat-icon-button class="profileButton" [matMenuTriggerFor]="profileMenu">
+      <img class="jpeg-icon" style="margin-left: 20px;" src="/assets/image/user1.jpeg">
+    </button>
+
+    <mat-menu #profileMenu="matMenu" class="custom">
+      <div fxLayout="row" style="overflow: hidden;width:100%" matMenuItem>
+        <button mat-button (click)="logout()" style="background-color: royalblue; margin-top: 25px">Log Out</button>
+      </div>
+    </mat-menu>
+  </mat-toolbar>
+
+  <div>
+    <mat-drawer-container class="example-container">
+      <mat-drawer #drawer class="example-sidenav" mode="side">
+        <div fxLayout=column>
+          <button mat-raised-button class="menuButton" routerLink="/">
+            <mat-icon style="margin-right:40px;margin-left:20px" class="maticons">
+              lightbulb_outline
+            </mat-icon>
+            <span> Notes</span>
+          </button>
+          <button mat-raised-button class="menuButton">
+            <mat-icon style="margin-right:40px;margin-left:20px" class="maticons">
+              add_alert
+            </mat-icon>
+            <span>Reminders</span>
+          </button>
+          <mat-divider style="margin: 7px"></mat-divider>
+          <span style="font-size: 12px;font-family:'Calibri'; margin-left: 20px">
+            LABELS
+          </span>
+          <div *ngIf="labels ? labels.length>0: false">
+            <div *ngFor="let label of labels">
+              <button mat-raised-button class="menuButton" routerLink="labels/{{label.labelName}}"
+                routerLinkActive="active">
+                <mat-icon style="margin-right:40px;margin-left:20px" class="maticons">
+                  label
+                </mat-icon>
+                <span>{{label.labelName}}</span>
+              </button>
+            </div>
+          </div>
+          <button mat-raised-button class="menuButton" (click)="openLabelDialog(labels)">
+            <mat-icon style="margin-right:40px;margin-left:20px" class="maticons">
+              create
+            </mat-icon>
+            Edit Labels
+          </button>
+          <mat-divider style="margin: 7px"></mat-divider>
+          <button mat-raised-button class="menuButton" routerLink="archive">
+            <mat-icon style="margin-right:40px;margin-left:20px" class="maticons">
+              archive
+            </mat-icon>
+            <span> Archive</span>
+          </button>
+          <button mat-raised-button class="menuButton" routerLink="trash">
+            <mat-icon style="margin-right:40px;margin-left:20px" class="maticons">
+              delete
+            </mat-icon>
+            <span> Trash </span>
+          </button>
+        </div>
+      </mat-drawer>
+      <mat-drawer-content >
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div>

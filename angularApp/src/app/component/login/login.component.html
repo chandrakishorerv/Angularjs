@@ -1,0 +1,35 @@
+<mat-toolbar>
+        <span>LOGIN</span>
+    </mat-toolbar>
+<div class="loginpage"  >
+    <mat-card >
+        <form [formGroup]="loginForm">
+      <mat-card-content fxLayout="column" fxLayoutAlign="space-around center">
+          <mat-form-field appearance="outline" class="login">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="enter email" formControlName="email">
+              
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="login">
+              <mat-label>Password</mat-label>
+              <input [type]="hide ? 'text' : 'password'" matInput placeholder="enter password" formControlName="password">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                      </button> 
+                      
+          </mat-form-field>
+          <div fxLayout="row" fxLayoutAlign="space-around center">
+              <button mat-raised-button color="accent" (click)='onSubmit()'>Login</button>
+              <nav>
+                  <a  routerLink="/registration"
+                   style="margin-left: 35px;">register</a>
+              </nav>
+              <nav>
+                  <a routerLink="/forgotpassword" style="margin-left: 16px;">forgot</a>
+              </nav>
+          </div>
+      </mat-card-content>
+  </form>
+    </mat-card>
+  </div>

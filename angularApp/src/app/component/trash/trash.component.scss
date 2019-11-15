@@ -1,0 +1,16 @@
+.notescard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 15em 0 10em;
+    border-width: 1px;
+  }
+
+  mat-card {
+    height: auto;
+    width: 200px;
+    border-radius: 15px;
+    margin: 3px 3px 3px 3px;
+
+  }

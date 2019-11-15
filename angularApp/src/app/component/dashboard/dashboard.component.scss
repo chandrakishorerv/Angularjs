@@ -1,0 +1,84 @@
+.jpg-icon{
+    height:30px;
+     width:10px;
+     max-width:10%;
+     min-width: 5%;
+  }
+  
+  .div-search{
+    display: flex;
+    border-radius: 8px;
+   max-width: 660px;
+    height: 35px;
+    border: 0px;
+    font-size: 15px; 
+    
+  }
+.resizedTextbox{
+    border-radius: 8px;
+    width: 550px;
+    height: 35px;
+    border: 0px;
+    font-size: 15px;
+   outline: 0ch;
+
+  }
+  .jpeg-icon{
+    border-radius: 50%;
+    height:25px;
+     width: 25px;
+     position: absolute;
+     top: 15px;
+     right: 15px;
+  }
+  .example-container {
+    
+    height: 600px;
+  outline: 0ch;
+  border: 0px;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+ 
+  height: 100%;
+}
+
+.menuButton{
+  border-radius: 5px 50px 50px 5px;
+ border: none;
+ outline-style:hidden;
+  height: 100%;
+  width:100%;
+  margin :0.5px 0.5px 0.5px 0.5px;
+  display: inline-block;
+  
+  box-shadow: none;
+}
+.maticons{height: 24px;
+width: 24px;
+float: left;
+margin-top: 8px;
+vertical-align: middle;
+}
+
+span{
+  float: left;
+  /* display: inline-block; */
+  width: 142px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+button:focus {outline:0;}
+
+button:focus {
+  outline:none;
+  box-shadow: none;
+}

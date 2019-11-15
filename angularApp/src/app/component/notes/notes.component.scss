@@ -1,0 +1,65 @@
+mat-card {
+    height: auto;
+    width: 200px;
+    border-radius: 15px;
+    margin: 3px 3px 3px 3px;
+
+  }
+  .notescard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 15em 0 10em;
+    border-width: 1px;
+  }
+.notescreate{
+  width: 850px;
+    height: 35px;
+    
+}
+
+/* 
+button.mat-button{
+  padding: 0px;
+  margin: 0px;
+  height: 0.3px;
+  width: 0.3px;
+min-height: px;
+ } */
+ .noteEditCard
+{
+    width: 600px;
+    height: 20px; 
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.noteEditCard2
+{
+    width: 600px;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.matfooter{
+  height:50px;
+}
+.z-depth-1 {
+  word-wrap: break-word;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+mat-card mat-card-footer.only-show-on-hover {
+  visibility: hidden;
+}
+mat-card:hover mat-card-footer.only-show-on-hover  {
+  visibility: visible;
+}
+.colorPalleteButton
+{
+  width: 20px; 
+  height: 20px; 
+  margin:4px; 
+  
+}

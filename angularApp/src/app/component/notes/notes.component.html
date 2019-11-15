@@ -1,0 +1,116 @@
+<div>
+    <div (click)=expandIt() *ngIf="!expand">
+        <mat-card (click)="expandIt()" class="noteEditCard">
+            <mat-card-content>
+                <span style="font-family: sans-serif; font-size: 16px; color: grey; margin-left: 20px;">Take a
+                    note.....</span>
+                <button mat-icon-button style="margin-left: 400px">
+                    <mat-icon>image</mat-icon>
+                </button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div *ngIf="expand">
+        <ng-container fxFlex>
+            <mat-card class="noteEditCard2" fxLayout="column" [style.background-color]="myColor">
+                <mat-card-header>
+                    <mat-card-title>
+                        <span>
+                            <textarea matInput #title matTextareaAutosize matAutosizeMinRows=1
+                                [style.background-color]="myColor"
+                                style="font-size: 17px; font-family: sans-serif;overflow: hidden"
+                                placeholder="Title"></textarea>
+                        </span>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <span>
+                        <textarea matInput #desc matTextareaAutosize matAutosizeMinRows=1
+                            [style.background-color]="myColor"
+                            style="margin-left:20px; height: 40px; font-size: 15px; overflow: hidden"
+                            placeholder="note..."></textarea>
+                    </span>
+                </mat-card-content>
+
+                <mat-card-footer style="margin-left: 10px; margin-bottom: 3px">
+                    <button mat-raised-button (click)="closeCreateBar(title.value, desc.value)"
+                        [style.background-color]="myColor"
+                        style="position: absolute; right: 0; margin-right: 20px ">Close</button>
+                </mat-card-footer>
+            </mat-card>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        </ng-container>
+    </div>
+
+    <div *ngIf="mynotes ? mynotes!=null: false" class="notescard">
+        <div *ngFor="let note of mynotes; let i = index" display="flex">
+            <mat-card class="z-depth-1" [style.background-color]="note.colour">
+                <div (click)="openDialog(note)">
+                    <mat-card-content>{{note.title}}</mat-card-content>
+                    <mat-card-content> {{note.description}}
+                        <p> {{note.createdOn | date:'dd.MM.yyyy HH:mm:ss'}}</p>
+                    </mat-card-content>
+                </div>
+                <mat-card-footer class="matfooter" class="only-show-on-hover">
+                    <mat-card-actions fxLayout="row">
+                        <div>
+                            <button mat-icon-button>
+                                <mat-icon style="margin-right:0px;margin-left:0px">
+                                    add_alert
+                                </mat-icon>
+                            </button>
+                            <button mat-icon-button>
+                                <mat-icon style="margin-right:0px;margin-left:0px">
+                                    person_add
+                                </mat-icon>
+                            </button>
+                            <button mat-icon-button [matMenuTriggerFor]="colorMenu">
+                                <mat-icon style="margin-right:0px;margin-left:0px">
+                                    palette
+                                </mat-icon>
+                            </button>
+                            <mat-menu #colorMenu="matMenu">
+                                <div *ngFor="let colors of colorsPallete">
+                                    <span *ngFor="let item of colors">
+                                        <button mat-icon-button [style.background-color]="item"
+                                            class="colorPalleteButton" (click)="addColour(item, note)">
+                                            <mat-icon></mat-icon>
+                                        </button>
+                                    </span>
+                                </div>
+                            </mat-menu>
+                            <button mat-icon-button>
+                                <mat-icon style="margin-right:0px;margin-left:0px">
+                                    photo
+                                </mat-icon>
+                            </button>
+                            <button mat-icon-button (click)="archiveNote(note);" (click)="doSomething()">
+                                <mat-icon style="margin-right:0px;margin-left:0px">
+                                    archive
+                                </mat-icon>
+                            </button>
+                            <button mat-icon-button [matMenuTriggerFor]="menu">
+                                <mat-icon style="margin-right:0px;margin-left:0px">
+                                    more_vert
+                                </mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="deleteNote(note)">Delete note</button>
+                                <button mat-menu-item [matMenuTriggerFor]="addlables">Add Labels</button>
+                                <button mat-menu-item>Make A Copy</button>
+                            </mat-menu>
+                            <mat-menu #addlables="matMenu">
+                                <div *ngIf="labels ? labels.length>0: false">
+                                    <div *ngFor="let label of labels">
+                                        <mat-checkbox (click)="addlabelnote(label.labelid,note.noteId)">
+                                            {{label.labelName}}</mat-checkbox>
+                                    </div>
+                                </div>
+                            </mat-menu>
+                        </div>
+                    </mat-card-actions>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>

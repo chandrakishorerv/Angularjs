@@ -1,0 +1,16 @@
+<div class="user-note" fxLayout="column" fxLayoutAlign="space-evenly stretch" >
+   
+        <div class="note-title">
+
+            <textarea cdkTextareaAutosize  [(ngModel)]="note.title"
+            #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="100"
+            placeholder="Title">{{note.title}}</textarea>
+        </div>
+        <div class="note-description">
+            <textarea cdkTextareaAutosize  [(ngModel)]="note.description"
+                #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="100"
+                placeholder="description">{{note.description}}</textarea>
+        </div>
+        <button mat-button (click)="onSubmit()">close</button>
+  
+</div>  

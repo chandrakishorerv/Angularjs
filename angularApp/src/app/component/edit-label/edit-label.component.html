@@ -1,0 +1,26 @@
+<span>Edit Labels</span>
+<mat-divider></mat-divider>
+
+<diV fxLayout="row">
+<span><button mat-icon-button >
+        <mat-icon>close</mat-icon>
+    </button></span>
+<span><textarea class="label-name" placeholder="create label" matInput #labelName matTextareaAutosize matAutosizeMinRows=1 ></textarea></span>
+<span><button mat-icon-button (click)="createLabel(labelName.value)">
+        <mat-icon>done</mat-icon>
+    </button></span>
+</diV>
+<mat-divider></mat-divider>
+<span *ngIf="labels ? labels.length>0: false">
+    <span *ngFor="let label of labels; let tempindex=index" fxLayout="row" class="mat-icons">
+        <span><button mat-icon-button (click)="deleteLabel(label,tempindex)">
+                <mat-icon>delete</mat-icon>
+            </button></span>
+        <span><textarea cdkTextareaAutosize [(ngModel)]="label.labelName" class="label-name"
+                placeholder="description">{{label.labelName}}</textarea></span>
+        <span><button mat-icon-button (click)="updateLabel(label)">
+                <mat-icon>create</mat-icon>
+            </button></span>
+        <mat-divider></mat-divider>
+    </span>
+</span> 
